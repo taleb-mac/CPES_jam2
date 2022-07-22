@@ -10,18 +10,30 @@ public class TextStuff : MonoBehaviour
     public Dialogue dialogue;
 
     public Text textBox;
+    public Text nameBox;
 
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
-        StartDialogue(dialogue);
+        StartCoroutine(StartDialogue(dialogue));
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DisplayNextSentence();
+        }
+    }
+
+    public IEnumerator StartDialogue(Dialogue dialogue)
     {
         sentences.Clear();
-        foreach(string sentence in dialogue.sentences)
+        StartCoroutine(TypeScentence(dialogue.name, nameBox));
+        yield return new WaitForSeconds(0.5f);
+
+        foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
@@ -36,10 +48,10 @@ public class TextStuff : MonoBehaviour
             return;
         }
 
-        StartCoroutine(TypeScentence(sentences.Dequeue()));
+        StartCoroutine(TypeScentence(sentences.Dequeue(), textBox));
     }
 
-    IEnumerator TypeScentence(string sentence)
+    IEnumerator TypeScentence(string sentence, Text textBox)
     {
         textBox.text = "";
         foreach(char letter in sentence.ToCharArray())
