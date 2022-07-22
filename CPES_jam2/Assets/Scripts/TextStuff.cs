@@ -12,6 +12,11 @@ public class TextStuff : MonoBehaviour
     public Text textBox;
     public Text nameBox;
 
+
+    public AudioSource source;
+    public AudioClip bleep;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +35,7 @@ public class TextStuff : MonoBehaviour
     public IEnumerator StartDialogue(Dialogue dialogue)
     {
         sentences.Clear();
-        StartCoroutine(TypeScentence(dialogue.name, nameBox));
+        nameBox.text = dialogue.name;
         yield return new WaitForSeconds(0.5f);
 
         foreach (string sentence in dialogue.sentences)
@@ -40,24 +45,32 @@ public class TextStuff : MonoBehaviour
         
         DisplayNextSentence();
     }
+
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+
+        StopAllCoroutines();
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
-
-        StartCoroutine(TypeScentence(sentences.Dequeue(), textBox));
+        StartCoroutine(TypeSentence(sentences.Dequeue(), textBox));
     }
 
-    IEnumerator TypeScentence(string sentence, Text textBox)
+    IEnumerator TypeSentence(string sentence, Text textBox)
     {
         textBox.text = "";
         foreach(char letter in sentence.ToCharArray())
         {
             textBox.text += letter;
             yield return new WaitForSeconds(0.05f);
+
+            if (letter != ' ')
+            {
+                source.pitch = 1 + Random.Range(-0.3f, 0.3f);
+                source.PlayOneShot(bleep, 0.5f);
+            }
         }
     }
 
@@ -65,9 +78,5 @@ public class TextStuff : MonoBehaviour
     {
         print("aaaaaaaa");
     }
-
-
-
-
 
 }
