@@ -16,6 +16,8 @@ public class TextStuff : MonoBehaviour
     public AudioSource source;
     public AudioClip bleep;
 
+    public Fade fade;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,7 @@ public class TextStuff : MonoBehaviour
 
     public IEnumerator StartDialogue(Dialogue dialogue)
     {
+        yield return new WaitForSeconds(0.5f);
         sentences.Clear();
         nameBox.text = dialogue.name;
         yield return new WaitForSeconds(0.5f);
@@ -76,7 +79,7 @@ public class TextStuff : MonoBehaviour
 
     void EndDialogue()
     {
-        print("aaaaaaaa");
+        fade.FadeOut();
     }
 
 }
