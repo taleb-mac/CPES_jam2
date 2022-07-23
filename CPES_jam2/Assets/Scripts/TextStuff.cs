@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TextStuff : MonoBehaviour
 {
 
-    Queue<string> sentences;
+    public Queue<string> sentences;
     public Dialogue dialogue;
 
     public Text textBox;
