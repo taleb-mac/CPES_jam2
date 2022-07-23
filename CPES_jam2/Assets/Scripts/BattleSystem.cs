@@ -186,7 +186,7 @@ public class BattleSystem : MonoBehaviour
 		bullyName.text = "Obama";
 		if (routine != null) StopCoroutine(routine);
 		StartCoroutine(TypeSentence("Dig a grave next to your dad, loser!", loseDialogue));
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(3f);
 		SceneManager.LoadScene("Scene6");
 		
 		//loseDialogue.text = "Dig a grave next to your dad, loser!";

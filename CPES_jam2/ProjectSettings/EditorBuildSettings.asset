@@ -39,6 +39,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene9.unity
     guid: 286caa5f72823934cb5d7272d75662cd
   - enabled: 1
+    path: Assets/Scenes/check.unity
+    guid: cc115d1cea7fe144987945b3741a6ff6
+  - enabled: 1
+    path: Assets/Scenes/SceneHug.unity
+    guid: 3649d62a061209047ba4b79e8a47fe2f
+  - enabled: 1
+    path: Assets/Scenes/NextDay3.unity
+    guid: 7f51a402761f635438a30843ccedb780
+  - enabled: 1
+    path: Assets/Scenes/SceneKitchen.unity
+    guid: 61f2cb4e0e2d6cf46b13b4410f6fcdc1
+  - enabled: 1
+    path: Assets/Scenes/SceneCrash.unity
+    guid: 8ef1bad80d68a494a9681c3275859a22
+  - enabled: 1
     path: Assets/Scenes/Battle.unity
     guid: e327b7c208d8f4fe29a7394ee419133c
   m_configObjects: {}
