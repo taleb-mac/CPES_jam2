@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7576f2aed4d9164478afffa1d7dcf0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: 17
+  levelToLoad: -1
 --- !u!95 &1035402046
 Animator:
   serializedVersion: 4

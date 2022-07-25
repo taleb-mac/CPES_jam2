@@ -28,6 +28,6 @@ public class Fade : MonoBehaviour
     
     public void loadLevel()
     {
-        SceneManager.LoadScene(levelToLoad);
+        SceneManager.LoadScene(levelToLoad+1);
     }
 }

@@ -20,6 +20,6 @@ public class EndScene : MonoBehaviour
     IEnumerator goToMain()
     {
         yield return new WaitForSeconds(6f);
-        SceneManager.LoadScene(17);
+        SceneManager.LoadScene(0);
     }
 }

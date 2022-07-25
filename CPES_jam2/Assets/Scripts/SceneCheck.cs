@@ -58,11 +58,11 @@ public class SceneCheck : MonoBehaviour
 
     public void Comfort()
     {
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(scene+1);
     }
 
     public void Ignore()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(8);
     }
 }
